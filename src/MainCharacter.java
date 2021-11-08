@@ -1,6 +1,7 @@
 public class MainCharacter {
-    public MainCharacter{
-        private
+    private int level;
+    public MainCharacter(){
+
 
     }
 }
