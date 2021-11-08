@@ -14,6 +14,7 @@ public class MainScreen{
         panel.setLayout(new FlowLayout());
         screen.add(panel);
         screen.setSize(x, y);
+        panel.setSize(x, y);
         screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         screen.setTitle("No elo");
         screen.pack();
