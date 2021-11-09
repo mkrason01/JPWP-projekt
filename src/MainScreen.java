@@ -9,10 +9,11 @@ public class MainScreen{
 
         JFrame screen = new JFrame();
         JPanel panel = new JPanel();
-        JButton startButton = new JButton();
+        JButton startButton = new JButton("START GRY");
         panel.setLayout(new BorderLayout());
         screen.add(panel);
         panel.add(startButton);
+        startButton.setSize(200,50);
         screen.setSize(x, y);
         panel.setSize(x, y);
         screen.setTitle("No elo");
