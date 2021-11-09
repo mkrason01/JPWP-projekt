@@ -1,5 +1,3 @@
-import sun.font.TrueTypeFont;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,11 +9,12 @@ public class MainScreen{
 
         JFrame screen = new JFrame();
         JPanel panel = new JPanel();
-        panel.setLayout(new FlowLayout());
+        JButton startButton = new JButton();
+        panel.setLayout(new BorderLayout());
         screen.add(panel);
+        panel.add(startButton);
         screen.setSize(x, y);
         panel.setSize(x, y);
-        screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         screen.setTitle("No elo");
         screen.pack();
         screen.setVisible(true);
