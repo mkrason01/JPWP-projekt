@@ -28,10 +28,16 @@ public class CommonFunctions {
         Panel.setLayout(new FlowLayout());
         return Panel;
     }
-    public void createFramewithPanel(String name, int x, int y){
+    public void createFrameWithPanel(String name, int x, int y){
         JFrame frame = this.createFrame(name, x, y);
         JPanel p = this.createPanel(name, x, y);
         frame.add(p);
 
+    }
+    public JLabel addingBackgroundPhoto(String fileLocation, int x, int y){
+        ImageIcon pic = new ImageIcon(fileLocation);
+        JLabel l = new JLabel(pic);
+        l.setSize(x, y);
+        return l;
     }
 }

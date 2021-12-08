@@ -6,7 +6,7 @@ public class Game {
     }
     public void startGame(){
 
-        functions.createFramewithPanel("game", 1024,768);
+        functions.createFrameWithPanel("game", 1024,768);
 
 
     }

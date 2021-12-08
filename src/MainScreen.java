@@ -9,12 +9,15 @@ public class MainScreen{
     Game game = new Game();
     public MainScreen(){    }
     CommonFunctions functions = new CommonFunctions();
+
     public void showScreen() {
     JFrame Frame = functions.createFrame("Main menu", x, y);
     JPanel Panel = functions.createPanel("Main", x, y);
     Frame.add(Panel);
     JButton startGame = functions.createButton("Start the game", 300, 100);
     Panel.add(startGame);
+    JLabel background = functions.addingBackgroundPhoto("resources/background_menu.gif", 1024, 768);
+    Panel.add(background);
     startGame.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
