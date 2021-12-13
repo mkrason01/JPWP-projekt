@@ -12,8 +12,9 @@ public class MainScreen{
 
     public void showScreen() {
     JFrame Frame = functions.createFrame("Main menu", x, y);
-    JPanel Panel = functions.createPanel("Main", x, y);
+    JPanel Panel = functions.createPanel(x, y);
     Frame.add(Panel);
+
     JButton startGame = functions.createButton("Start the game", 300, 100);
     Panel.add(startGame);
     JLabel background = functions.addingBackgroundPhoto("resources/background_menu.gif", 1024, 768);
@@ -25,6 +26,7 @@ public class MainScreen{
             Frame.dispose();
         }
     });
+        Frame.setVisible(true);
     }
 
 
