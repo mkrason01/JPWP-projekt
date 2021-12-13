@@ -14,7 +14,7 @@ public class MainScreen{
     JFrame Frame = functions.createFrame("Main menu", x, y);
     JPanel Panel = functions.createPanel(x, y);
     Frame.add(Panel);
-
+    Frame.setVisible(true);
     JButton startGame = functions.createButton("Start the game", 300, 100);
     Panel.add(startGame);
     JLabel background = functions.addingBackgroundPhoto("resources/background_menu.gif", 1024, 768);

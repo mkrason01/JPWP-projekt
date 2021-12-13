@@ -17,12 +17,11 @@ public class Game {
     }
     public void startGame(){
         frame.add(p);
+        frame.setVisible(true);
         String sentence = "bardzo lubie placki";
         this.text = this.sentence2char(sentence);
         p.setFocusable(true);
         p.requestFocusInWindow();
-        frame.setVisible(true);
-
         p.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {

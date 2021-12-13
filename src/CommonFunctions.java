@@ -16,12 +16,13 @@ public class CommonFunctions {
 
     public JFrame createFrame(String name, int x, int y){
         JFrame frame = new JFrame(name);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        frame.setVisible(true);
+        //frame.setVisible(true);
         frame.setSize(x, y);
         frame.setResizable(false);
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         return frame;
     }
 
@@ -36,7 +37,6 @@ public class CommonFunctions {
         frame = this.createFrame(name, x, y);
         p = this.createPanel(x, y);
         frame.add(p);
-        p.setVisible(true);
         p.requestFocusInWindow();
     }
 
