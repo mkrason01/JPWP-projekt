@@ -13,22 +13,26 @@ public class MainScreen{
     public void showScreen() {
     JFrame Frame = functions.createFrame("Main menu", x, y);
     JPanel Panel = functions.createPanel(x, y);
-    Frame.add(Panel);
-    Frame.setVisible(true);
+
+
     JButton startGame = functions.createButton("Start the game", 300, 100);
-    Panel.add(startGame);
     JLabel background = functions.addingBackgroundPhoto("resources/background_menu.gif", 1024, 768);
-    Panel.add(background);
+    startGame.setLocation((Frame.getWidth()/2) - 170, 100);
+    Frame.add(startGame);
+
+    Frame.add(background);
+
+    Frame.add(Panel);
+
+    background.setVisible(true);
+    Frame.setVisible(true);
+
     startGame.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             game.startGame();
             Frame.dispose();
         }
-    });
-        Frame.setVisible(true);
-    }
-
-
+    });}
 }
 
