@@ -28,7 +28,8 @@ public class CommonFunctions {
     public JPanel createPanel(int x, int y){
         JPanel Panel = new JPanel();
         Panel.setVisible(true);
-        Panel.setLayout(new FlowLayout());
+        Panel.setLayout(null);
+        Panel.setSize(x, y);
         return Panel;
     }
 

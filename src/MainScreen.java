@@ -13,7 +13,7 @@ public class MainScreen{
     public void showScreen() {
     JFrame Frame = functions.createFrame("Main menu", x, y);
     JPanel Panel = functions.createPanel(x, y);
-
+    Panel.setLayout(new FlowLayout());
 
     JButton startGame = functions.createButton("Start the game", 300, 100);
     JLabel background = functions.addingBackgroundPhoto("resources/background_menu.gif", 1024, 768);
