@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -33,7 +34,6 @@ public class Game {
                 if(e.getKeyChar()==text[i]){
                     System.out.println("pajacu nic nie umiesz");
                     i++;
-                    String show = null;
                     letter.setText(String.valueOf(text[i]));
                 }
 
@@ -66,6 +66,7 @@ public class Game {
     private void showCurrentLetter(String sentence){
         letter = new JLabel(Character.toString(text[i]));
         letter.setName(Character.toString(text[i]));
+        letter.setFont(new Font("Arial", Font.PLAIN, 34 ));
         letter.setLocation(x/2, y/2);
         letter.setVisible(true);
         p.add(letter);
