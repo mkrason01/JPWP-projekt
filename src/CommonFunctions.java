@@ -33,13 +33,6 @@ public class CommonFunctions {
         return Panel;
     }
 
-    public void createFrameWithPanel(JFrame frame, JPanel p, String name, int x, int y){
-        frame = this.createFrame(name, x, y);
-        p = this.createPanel(x, y);
-        frame.add(p);
-        p.requestFocusInWindow();
-    }
-
     public JLabel addingBackgroundPhoto(String fileLocation, int x, int y){
         ImageIcon pic = new ImageIcon(fileLocation);
         JLabel l = new JLabel(pic);
