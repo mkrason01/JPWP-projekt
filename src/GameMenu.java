@@ -16,7 +16,8 @@ public class GameMenu {
     private Game game;
     JFrame menuF = functions.createFrame("Menu", 400, 600);
     JPanel menuP = functions.createPanel(400, 600);
-    public GameMenu(int time, boolean Passed, int level, Game game){
+
+    public GameMenu(int time, boolean Passed, int level, Game game) {
         this.level = level;
         this.Passed = Passed;
         this.time = time;
@@ -24,49 +25,77 @@ public class GameMenu {
         this.showMenu();
         System.out.println(level);
     }
-    public void showMenu(){
+
+    public void showMenu() {
 
         menuF.add(menuP);
         menuP.add(resume);
         menuP.add(nextLevel);
         menuP.add(mainMenu);
-        menuP.add(aboutAuthor);
+        menuP.add(playAgain);
         resume.setLocation(25, 40);
         nextLevel.setLocation(25, 180);
-        aboutAuthor.setLocation(25, 320);
+        playAgain.setLocation(25, 320);
         mainMenu.setLocation(25, 460);
         menuF.setVisible(true);
         this.buttons(resume, nextLevel, mainMenu, aboutAuthor, playAgain);
     }
-    private void buttons(JButton resume, JButton nextLevel, JButton mainMenu, JButton aboutAuthor, JButton playAgain){
-        resume.addActionListener(new ActionListener(){
+
+    private void buttons(JButton resume, JButton nextLevel, JButton mainMenu, JButton aboutAuthor, JButton playAgain) {
+        resume.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 resumeBut();
             }
         });
-        nextLevel.addActionListener(new ActionListener(){
+        nextLevel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 nextLevelBut();
             }
         });
+        mainMenu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainMenuBut();
+            }
+        });
+        playAgain.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                playAgainBut();
+            }
+        });
     }
-    private void resumeBut(){
+
+    private void resumeBut() {
         menuF.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         menuF.dispose();
     }
-    private void nextLevelBut(){
-        if(level<3) {
+
+    private void nextLevelBut() {
+        if (level < 3) {
             level++;
             game.frame.dispose();
             game = new Game(level);
-            //game.level = level;
             game.startGame();
             menuF.dispose();
-        }
-        else{
+        } else {
             System.out.println("cant increase lvl");
         }
+    }
+
+    private void mainMenuBut() {
+        game.frame.dispose();
+        MainScreen main = new MainScreen();
+        main.showScreen();
+        menuF.dispose();
+    }
+
+    private void playAgainBut() {
+        game.frame.dispose();
+        game = new Game(level);
+        game.startGame();
+        menuF.dispose();
     }
 }
