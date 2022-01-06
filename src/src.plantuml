@@ -31,9 +31,9 @@ title __SRC's Class Diagram__\n
   
 
   namespace  {
-    class MainCharacter {
+    class GameMenu {
         - level : int
-        + MainCharacter()
+        + GameMenu()
     }
   }
   

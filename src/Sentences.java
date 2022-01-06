@@ -53,7 +53,7 @@ public class Sentences {
         if (this.level == 3) {
             if (sentNum == 1) {
                 sentenceToSend = "król karol kupił królowej karolinie korale koloru koralowego   ";
-                this.time = 8;
+                this.time = 10;
             }
             if (sentNum == 2) {
                 sentenceToSend = "Wyrewolwerowany rewolwerowiec wyrewolwerował wyrewolwanego rewolwerowca   ";

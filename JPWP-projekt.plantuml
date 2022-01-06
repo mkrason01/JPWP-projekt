@@ -15,7 +15,7 @@ title __JPWP-PROJEKT's Class Diagram__\n
   
 
   namespace  {
-    class MainCharacter {
+    class GameMenu {
     }
   }
   

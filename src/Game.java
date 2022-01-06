@@ -1,3 +1,5 @@
+import javafx.scene.input.KeyCode;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -5,9 +7,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
+    public int level;
     Sentences sent = new Sentences();
     JFrame frame;
     JPanel p;
+
+    public Game(int level) {
+        CommonFunctions functions = new CommonFunctions();
+        frame = functions.createFrame("game frame", 1024, 768);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        p = functions.createPanel(1024, 768);
+        this.level = level;
+    }
+
     JLabel[] letter = new JLabel[3];
     List<JLabel> spaces = new ArrayList<JLabel>();
     List<JLabel> lettersDisp = new ArrayList<JLabel>();
@@ -19,18 +31,20 @@ public class Game {
     int time = 0;
     JLabel timerLabel = new JLabel("-");
 
+    Game game = this;
+
     public Game() {
         CommonFunctions functions = new CommonFunctions();
         frame = functions.createFrame("game frame", 1024, 768);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         p = functions.createPanel(1024, 768);
-
-
     }
+
 
     public void startGame() {
         frame.add(p);
         frame.setVisible(true);
-        String sentence = sent.sentence(2);
+        String sentence = sent.sentence(level);
         this.text = this.sentence2char(sentence);
         this.displaySpaces();
         this.displayLetters();
@@ -67,11 +81,15 @@ public class Game {
                     }
                     i++;
                 }
+
             }
 
             @Override
             public void keyPressed(KeyEvent e) {
-
+                if (e.getExtendedKeyCode() == KeyEvent.VK_ESCAPE) {
+                    GameMenu menu = new GameMenu(time, false, level, game);
+                    System.out.println("esc pressed");
+                }
             }
 
             @Override
@@ -131,7 +149,7 @@ public class Game {
     }
 
     private void displaySpaces() {
-        int amount = text.length-2;
+        int amount = text.length - 2;
         ImageIcon papaj = new ImageIcon("resources/Gwiazdka.JPG");
         Image imgpapaj = papaj.getImage();
         Image imgScaledPapaj = imgpapaj.getScaledInstance(24, 50, Image.SCALE_SMOOTH);
@@ -143,25 +161,25 @@ public class Game {
             ImageIcon picDisp = new ImageIcon(imgScaled);
             spaces.add(new JLabel(picDisp));
             spaces.get(j).setIcon(picDisp);
-            spaces.get(j).setLocation(100+j*(1024-200)/(amount+5), 650);
+            spaces.get(j).setLocation(100 + j * (1024 - 200) / (amount + 5), 650);
             spaces.get(j).setVisible(true);
-            spaces.get(j).setSize((1024-200)/(amount+5)-3, 10);
+            spaces.get(j).setSize((1024 - 200) / (amount + 5) - 3, 10);
             p.add(spaces.get(j));
         }
-        spaces.get(i-2).setIcon(picDispPapaj);
+        spaces.get(i - 2).setIcon(picDispPapaj);
         p.setFocusable(true);
         p.requestFocusInWindow();
     }
-    private void displayLetters(){
-        int amount = text.length-2;
-        for(int k = 0; k< amount; k++){
+
+    private void displayLetters() {
+        int amount = text.length - 2;
+        for (int k = 0; k < amount; k++) {
             lettersDisp.add(new JLabel(Character.toString(text[k])));
-            lettersDisp.get(k).setFont(new Font("Arial", Font.PLAIN, (1024-200)/(amount+5)));
-            lettersDisp.get(k).setLocation(100+k*(1024-200)/(amount+5), 680);
+            lettersDisp.get(k).setFont(new Font("Arial", Font.PLAIN, (1024 - 200) / (amount + 5)));
+            lettersDisp.get(k).setLocation(100 + k * (1024 - 200) / (amount + 5), 680);
             lettersDisp.get(k).setVisible(true);
-            lettersDisp.get(k).setSize((1024-200)/(amount+5)-3, 30);
+            lettersDisp.get(k).setSize((1024 - 200) / (amount + 5) - 3, 30);
             p.add(lettersDisp.get(k));
         }
     }
-
 }

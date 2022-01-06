@@ -16,8 +16,6 @@ public class CommonFunctions {
 
     public JFrame createFrame(String name, int x, int y){
         JFrame frame = new JFrame(name);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         frame.setSize(x, y);
         frame.setResizable(false);
 

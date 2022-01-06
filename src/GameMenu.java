@@ -1,9 +1,72 @@
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-public class MainCharacter {
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class GameMenu {
+
+    CommonFunctions functions = new CommonFunctions();
     private int level;
-    public MainCharacter(){
+    private boolean Passed;
+    private int time;
+    private JButton resume = functions.createButton("Back to game", 350, 100);
+    private JButton nextLevel = functions.createButton("Change level to higher", 350, 100);
+    private JButton mainMenu = functions.createButton("Back to Main Menu", 350, 100);
+    private JButton aboutAuthor = functions.createButton("About me ;)", 350, 100);
+    private JButton playAgain = functions.createButton("Play again ;)", 350, 100);
+    private Game game;
+    JFrame menuF = functions.createFrame("Menu", 400, 600);
+    JPanel menuP = functions.createPanel(400, 600);
+    public GameMenu(int time, boolean Passed, int level, Game game){
+        this.level = level;
+        this.Passed = Passed;
+        this.time = time;
+        this.game = game;
+        this.showMenu();
+        System.out.println(level);
+    }
+    public void showMenu(){
 
-
+        menuF.add(menuP);
+        menuP.add(resume);
+        menuP.add(nextLevel);
+        menuP.add(mainMenu);
+        menuP.add(aboutAuthor);
+        resume.setLocation(25, 40);
+        nextLevel.setLocation(25, 180);
+        aboutAuthor.setLocation(25, 320);
+        mainMenu.setLocation(25, 460);
+        menuF.setVisible(true);
+        this.buttons(resume, nextLevel, mainMenu, aboutAuthor, playAgain);
+    }
+    private void buttons(JButton resume, JButton nextLevel, JButton mainMenu, JButton aboutAuthor, JButton playAgain){
+        resume.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                resumeBut();
+            }
+        });
+        nextLevel.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                nextLevelBut();
+            }
+        });
+    }
+    private void resumeBut(){
+        menuF.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        menuF.dispose();
+    }
+    private void nextLevelBut(){
+        if(level<3) {
+            level++;
+            game.frame.dispose();
+            game = new Game(level);
+            //game.level = level;
+            game.startGame();
+            menuF.dispose();
+        }
+        else{
+            System.out.println("cant increase lvl");
+        }
     }
 }

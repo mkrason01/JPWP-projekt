@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class MainScreen{
     private int x = 1024;
     private int y = 768;
-    Game game = new Game();
+    Game game = new Game(1);
     public MainScreen(){    }
     CommonFunctions functions = new CommonFunctions();
 
@@ -31,6 +31,7 @@ public class MainScreen{
         @Override
         public void actionPerformed(ActionEvent e) {
             game.startGame();
+            Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             Frame.dispose();
         }
     });}
