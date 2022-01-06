@@ -68,12 +68,18 @@ public class Game {
                         if (sent.sentTime() >= time) {
                             letter[1].setText("PASSED");
                             System.out.println("PASSED");
+                            ToSumUp passed = new ToSumUp(time, sentence, level, true, game);
+                            passed.summingUp();
+                            timer.stop();
                         }
                         if (sent.sentTime() < time) {
                             letter[1].setText("TOO LONG, TRY AGAIN");
                             System.out.println("TOO LONG, TRY AGAIN");
+                            ToSumUp notpassed = new ToSumUp(time, sentence, level, false, game);
+                            notpassed.summingUp();
+                            timer.stop();
                         }
-                        timer.stop();
+
                         i--;
                         letter[0].setText(" ");
                         letter[1].setLocation(x / 2 - 200, y / 2);

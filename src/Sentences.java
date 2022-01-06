@@ -46,8 +46,8 @@ public class Sentences {
                 this.time = 7;
             }
             if (sentNum == 4) {
-                sentenceToSend = "Papież to bardzo szanowany człowiek   ";
-                this.time = 6;
+                sentenceToSend = "Papież Jan Paweł, był wielkim człowiekiem   ";
+                this.time = 8;
             }
         }
         if (this.level == 3) {
