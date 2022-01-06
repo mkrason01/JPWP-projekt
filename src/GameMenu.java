@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class GameMenu {
 
@@ -24,6 +26,7 @@ public class GameMenu {
         this.game = game;
         this.showMenu();
         System.out.println(level);
+
     }
 
     public void showMenu() {
@@ -39,6 +42,28 @@ public class GameMenu {
         mainMenu.setLocation(25, 460);
         menuF.setVisible(true);
         this.buttons(resume, nextLevel, mainMenu, aboutAuthor, playAgain);
+        menuP.setFocusable(true);
+        menuP.addKeyListener(new KeyListener() {
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getExtendedKeyCode() == KeyEvent.VK_ESCAPE) {
+                    menuF.dispose();
+                    System.out.println("esc pressed");
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+
+        });
     }
 
     private void buttons(JButton resume, JButton nextLevel, JButton mainMenu, JButton aboutAuthor, JButton playAgain) {
