@@ -11,9 +11,8 @@ public class Game {
     Sentences sent = new Sentences();
     JFrame frame;
     JPanel p;
-
+    CommonFunctions functions = new CommonFunctions();
     public Game(int level) {
-        CommonFunctions functions = new CommonFunctions();
         frame = functions.createFrame("game frame", 1024, 768);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         p = functions.createPanel(1024, 768);
@@ -38,11 +37,17 @@ public class Game {
         frame = functions.createFrame("game frame", 1024, 768);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         p = functions.createPanel(1024, 768);
+        p.setVisible(true);
+        p.setLayout(null);
+        p.setSize(1024, 768);
     }
 
 
     public void startGame() {
+        JLabel background = functions.addingBackgroundPhoto("resources/gameBackground.jpg", 1024, 768);
+        p.setOpaque(false);
         frame.add(p);
+        frame.add(background);
         frame.setVisible(true);
         String sentence = sent.sentence(level);
         this.text = this.sentence2char(sentence);

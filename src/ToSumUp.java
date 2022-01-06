@@ -95,7 +95,7 @@ public class ToSumUp {
             tryAgain.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    mainMenuBut();
+                    playAgainBut();
                 }
             });
         }
