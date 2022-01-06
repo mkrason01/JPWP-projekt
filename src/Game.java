@@ -130,6 +130,9 @@ public class Game {
         letter[0].setFont(new Font("Arial", Font.PLAIN, 34));
         letter[1].setFont(new Font("Arial", Font.PLAIN, 34));
         letter[2].setFont(new Font("Arial", Font.PLAIN, 34));
+        letter[0].setForeground(Color.WHITE);
+        letter[1].setForeground(Color.WHITE);
+        letter[2].setForeground(Color.WHITE);
         letter[0].setSize(100, 200);
         letter[1].setSize(1000, 200);
         letter[2].setSize(100, 200);
@@ -148,6 +151,7 @@ public class Game {
         timerLabel.setLocation(x / 2, 100);
         timerLabel.setVisible(true);
         timerLabel.setFont(new Font("Arial", Font.PLAIN, 34));
+        timerLabel.setForeground(Color.WHITE);
         timerLabel.setSize(100, 200);
         p.add(timerLabel);
         timer = new Timer(1000, new ActionListener() {
@@ -187,6 +191,7 @@ public class Game {
         for (int k = 0; k < amount; k++) {
             lettersDisp.add(new JLabel(Character.toString(text[k])));
             lettersDisp.get(k).setFont(new Font("Arial", Font.PLAIN, (1024 - 200) / (amount + 5)));
+            lettersDisp.get(k).setForeground(Color.WHITE);
             lettersDisp.get(k).setLocation(100 + k * (1024 - 200) / (amount + 5), 680);
             lettersDisp.get(k).setVisible(true);
             lettersDisp.get(k).setSize((1024 - 200) / (amount + 5) - 3, 30);
