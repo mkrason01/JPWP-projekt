@@ -16,6 +16,7 @@ public class ToSumUp {
     JButton backToMenu = f.createButton("Back to menu", 350, 100);
     JButton tryAgain = f.createButton("Try Again", 350, 100);
     Game game;
+    JLabel background = f.addingBackgroundPhoto("resources/gameBackground.jpg", 1024, 768);
 
     public ToSumUp(int time, String s, int level, boolean passed, Game game) {
         this.time = time;
@@ -26,8 +27,9 @@ public class ToSumUp {
     }
 
     public void summingUp() {
-
+        p.setOpaque(false);
         frame.add(p);
+        frame.add(background);
         if (passedOrNot) {
             String TimeText = "Your time was " + time + " seconds";
             String levelText = "Your level was " + (level) + " out of 3 levels";
@@ -46,6 +48,7 @@ public class ToSumUp {
                 JLabel urTime = new JLabel(TimeText);
                 urTime.setLocation(25, 50);
                 urTime.setFont(new Font("Arial", Font.PLAIN, 20));
+                urTime.setForeground(Color.WHITE);
                 urTime.setVisible(true);
                 urTime.setSize(350, 100);
                 p.add(urTime);
@@ -53,6 +56,7 @@ public class ToSumUp {
                 JLabel urLevel = new JLabel(levelText);
                 urLevel.setLocation(25, 100);
                 urLevel.setFont(new Font("Arial", Font.PLAIN, 20));
+                urLevel.setForeground(Color.WHITE);
                 urLevel.setVisible(true);
                 urLevel.setSize(350, 100);
                 p.add(urLevel);
@@ -68,6 +72,7 @@ public class ToSumUp {
                 JLabel urTime = new JLabel(TimeText);
                 urTime.setLocation(25, 50);
                 urTime.setFont(new Font("Arial", Font.PLAIN, 20));
+                urTime.setForeground(Color.WHITE);
                 urTime.setVisible(true);
                 urTime.setSize(350, 100);
                 p.add(urTime);
@@ -75,6 +80,7 @@ public class ToSumUp {
                 JLabel urLevel = new JLabel(levelText);
                 urLevel.setLocation(25, 100);
                 urLevel.setFont(new Font("Arial", Font.PLAIN, 20));
+                urLevel.setForeground(Color.WHITE);
                 urLevel.setVisible(true);
                 urLevel.setSize(350, 100);
                 p.add(urLevel);
@@ -86,6 +92,7 @@ public class ToSumUp {
             this.passed = "Unfortunately, try again :/";
             String failedText = "You Failed ://";
             JLabel failed = new JLabel(failedText);
+            failed.setForeground(Color.WHITE);
             failed.setLocation(150, 100);
             failed.setFont(new Font("Arial", Font.PLAIN, 20));
             failed.setVisible(true);

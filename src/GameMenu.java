@@ -18,6 +18,7 @@ public class GameMenu {
     private Game game;
     JFrame menuF = functions.createFrame("Menu", 400, 600);
     JPanel menuP = functions.createPanel(400, 600);
+    JLabel background = functions.addingBackgroundPhoto("resources/gameBackground.jpg", 1024, 768);
 
     public GameMenu(int time, boolean Passed, int level, Game game) {
         this.level = level;
@@ -30,8 +31,9 @@ public class GameMenu {
     }
 
     public void showMenu() {
-
+        menuP.setOpaque(false);
         menuF.add(menuP);
+        menuF.add(background);
         menuP.add(resume);
         menuP.add(nextLevel);
         menuP.add(mainMenu);
