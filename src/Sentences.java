@@ -6,7 +6,7 @@ public class Sentences {
     }
 
     private int generateRandom() {
-        int rand = (int) ((Math.random() * (4 - 1)) + 1);
+        int rand = (int) ((Math.random() * (5 - 1)) + 1);
         return rand;
     }
 

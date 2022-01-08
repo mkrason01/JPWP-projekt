@@ -16,9 +16,15 @@ public class MainScreen{
     Panel.setLayout(new FlowLayout());
 
     JButton startGame = functions.createButton("Start the game", 300, 100);
+    JButton aboutMe = functions.createButton("About me", 300, 100);
+    JButton exit = functions.createButton("Exit", 300, 100);
     JLabel background = functions.addingBackgroundPhoto("resources/background_menu.gif", 1024, 768);
     startGame.setLocation((Frame.getWidth()/2) - 170, 100);
+    aboutMe.setLocation((Frame.getWidth()/2) - 170, 240);
+    exit.setLocation((Frame.getWidth()/2) - 170, 380);
     Frame.add(startGame);
+    Frame.add(aboutMe);
+    Frame.add(exit);
 
     Frame.add(background);
 
@@ -34,6 +40,14 @@ public class MainScreen{
             Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             Frame.dispose();
         }
-    });}
+    });
+    exit.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.exit(0);
+        }
+    });
+
+    }
 }
 
