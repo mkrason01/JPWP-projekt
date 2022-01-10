@@ -7,6 +7,7 @@ public class MainScreen{
     private int x = 1024;
     private int y = 768;
     Game game = new Game(1);
+
     public MainScreen(){    }
     CommonFunctions functions = new CommonFunctions();
 
@@ -47,7 +48,14 @@ public class MainScreen{
             System.exit(0);
         }
     });
-
+    aboutMe.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            aboutMe aboutM = new aboutMe();
+            Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            Frame.dispose();
+        }
+    });
     }
 }
 
